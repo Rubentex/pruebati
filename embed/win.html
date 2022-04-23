@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from iveyfuls.art/extension/foxp.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Apr 2022 19:32:32 GMT -->
+<head>
+<title>Embed</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+  function PlayE(data, m3u8){
+   if(data){
+    console.log("Extensi贸n instalada"+ m3u8);
+    location.href='chrome-extension_/lcipembjfkmeggpihdpdgnjildgniffl/player.html#'+m3u8
+   }else{
+    location.href='descargar.html';
+   }
+}
+  function detectExtension(callback, m3u8) {
+  var img;
+  img = new Image();
+  img.src = "chrome-extension_/lcipembjfkmeggpihdpdgnjildgniffl/icon128.html";
+  img.onload = function() {
+  callback(true, m3u8);
+  };
+  img.onerror = function() {
+  callback(false);
+  };
+}
+            m3u8 = "https://mdstrm.com/live-stream-playlist/529cff6f6bd2ea6b610000e0.m3u8?access_token=Dqclsl9EMHgjmzsT3pFGmBbPbX4OhobapyDivcsv944rMwuj3M65yp7FvwbIMQsnKXjFOahkvup";
+            if(/Android|iPhone|iPad|iPod|BlackBerry|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                //alert(mpd);
+                location.href=m3u8;
+            }else{
+                console.log('NO es un celular.');
+                detectExtension(PlayE, m3u8);
+            }
+       
+   
+
+</script>
