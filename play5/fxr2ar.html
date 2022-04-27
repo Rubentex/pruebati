@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
+<script src="https://ssl.p.jwpcdn.com/player/v/8.24.0/jwplayer.js"></script>
+<script> jwplayer.key='XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+<body>
+<div id="player">Cargando...</div>
+<script>
+var playerInstance=jwplayer("player");
+playerInstance.setup( {
+
+	playlist: [ {
+	title : "REPRODUCTOR",
+		"sources": [ {
+			"default": false, "file": atob("aHR0cHM6Ly9lZGdlLWxpdmUxMS1oci5jdmF0dHYuY29tLmFyL2xpdmUvYzNlZHMvRm94U3BvcnRzMkhEL1NBX0xpdmVfZGFzaF9lbmNfMkEvRm94U3BvcnRzMkhELm1wZA=="), "drm": {
+				"widevine": {
+					 "url": 'https://wv-client.cvattv.com/2.php?deviceId=RWwgamFyZMOtbiBkZSBzZW5kZXJvcyBxdWUgc2UgYmlmdXJjYW4='
+
+				}
+			}
+			, "label": "0", "type": "mpd"
+		}
+		]
+	}
+	], width: "100%",  height: "100%", aspectratio: "16:9", autostart: false, cast: {}
+	, sharing: {}
+}
+);
+</script>
+</html>
