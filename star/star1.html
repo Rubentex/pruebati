@@ -1,8 +1,5 @@
-
 <html>
 <head>
-<meta name="theme-color" content="black">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="referrer" content="never">
 <meta name="referrer" content="no-referrer">
 <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -14,6 +11,7 @@
 <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip-plugin@latest/dist/clappr-pip-plugin.js"></script>
 <style>
         body {
             margin: 0;
@@ -21,13 +19,67 @@
         }
     </style>
 </head>
-<body data-autofill-highlight="false">
-<div id="vipplayer"></div>
-<script>
-    var player = new Clappr.Player({parentId: "#vipplayer", mimeType: "application/dash+xml", source: "https://live-llc-sa-east-2.media.starott.com/gru1/qb02/starplus/event/2022/04/26/Manchester_City_vs_Real_M_20220426_1650992454033/ctr-all-sliding.m3u8", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"bc27143078084356b5b8f7e6fbfae1b0": "6ec1abc6423c63708fb89e541c626e86"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+<style>
+
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; background-color: #000;
+    margin: 0;
+}
+#player {
+    width: 100vw;
+    height: 100%;
+    //max-height: 100vh;
+    //max-width: 177.78vh;
+    //margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; background-color: #000;
+    right: 0;
+}
+</style>
+<body oncontextmenu="return false;">
+<div id="player"></div>
+<script type="text/javascript">
+
+var myArray = [
+'https://live-llc-sa-east-2.media.starott.com/gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://live-llc-sa-east-1.media.starott.com/gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://live-llc-sa-west-2.media.starott.com/gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://live-llc-sa-west-1.media.starott.com/gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://linear-llc-sa-east-2.media.starott.com//gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://linear-llc-sa-east-1.media.starott.com//gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',
+'https://linear-llc-sa-west-1.media.starott.com//gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8',  
+'https://linear-llc-sa-west-2.media.starott.com//gru1/qb01/starplus/event/2022/04/27/Liverpool_vs_Villarreal_20220427_1651078810023/ctr-all-sliding.m3u8'  
+]; 
+var rand = myArray[(Math.random() * myArray.length) | 0]
+console.log(rand);
+var lang = "es-AR";
+ 
+       var setup = {
+          parentId: '#player',
+          source: rand,
+          mimeType:"application/dash+xml",
+          width: '100%',
+          height: '100%',
+          plugins: [DashShakaPlayback,LevelSelector,ClapprPIPPlugin,ChromecastPlugin],
+          preload: 'metadata',
+
+          shakaConfiguration: {
+          drm: {
+          clearKeys: {"f2cd90a4f2a0450db403018e174765b6":"498b060aa947bbdd1867127f6ff41d9c"},
+              retryParameters: {
+                  maxAttempts: Infinity,
+                }
+            }
+          },
+        };
+
+                    var player = new Clappr.Player(setup)
+
+
 </script>
-</body></html>
