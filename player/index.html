@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<meta content="max-age=200" http-equiv="Cache-Control">
+<meta content="noindex,nofollow" name="robots">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+<style>
+    body {
+        background-color: #000;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<script type="text/javascript">
+function getParameterByName(damaso) {
+  damaso = damaso.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var ezran = new RegExp("[\\?&]" + damaso + "=([^&#]*)"), caeli = ezran.exec(location.search);
+  return caeli === null ? "" : decodeURIComponent(caeli[1].replace(/\+/g, " "));
+}
+id = getParameterByName("p");
+if (getParameterByName("embed")) {
+  embed = getParameterByName("embed");
+} else {
+  if (getParameterByName("r")) {
+    embed = getParameterByName("r");
+  } else {
+    embed = false;
+  }
+}
+;
+if (embed) {
+  document.write('<iframe allow="encrypted-media" src="' + atob(embed) + '" width="100%" height="100%" name="iframe" id="iframe" frameborder="0" scrolling="no" style="position:absolute;" allowfullscreen=""></iframe>');
+} else {
+  document.write('<img class="embed-responsive-item" src="" width="100%" height="100%">');
+}
+
+</script>
