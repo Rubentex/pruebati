@@ -1,0 +1,44 @@
+body {
+  background-image: url('http://bitmovin-a.akamaihd.net/webpages/bitmovin/images/background.jpg');
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-family: "Dosis";
+  color: white;
+  text-align: center;
+}
+
+.container a {
+  color: white;
+}
+
+.container h1 {
+  font: 54px/66px "Dosis";
+  margin-bottom: 22px;
+  line-height: 66px;
+}
+
+.container h2 {
+  font-weight: normal;
+  margin-bottom: 36px;
+  line-height: 26px;
+}
+
+.player-wrapper {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+#webserver-warning {
+  margin: 50px;
+  padding: 20px;
+  background-color: rgba(255, 0, 0, 0.5);
+  display: none;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bitmovin Demo 02</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h1>HTML5 Adaptive Streaming Player for MPEG-DASH & HLS</h1>
+  <h2>Your videos play everywhere with low startup delay, no buffering and in highest quality.</h2>
+  <div id="webserver-warning">
+    <div class="ca-content">
+      <h1>Unsupported Protocol</h1>
+      <h2>This file has been loaded using the unsupported "file" protocol. Please use a <a href="http://wiki.selfhtml.org/wiki/Webserver/lokal" target="_blank">web server</a> and open this page using http or https.</h2>
+    </div>
+  </div>
+  <div class="content">
+    <div class="player-wrapper">
+      <div id="player"></div>
+    </div>
+    <div class="description">
+      <p>For more information about the bitmovin player, please have a look at our online <a href="//bitmovin.com/support" target="_blank">Developer Section</a>.</p>
+    </div>
+  </div>
+
+</div>
+<!-- partial -->
+  <script src='https://bitmovin-a.akamaihd.net/bitmovin-player/stable/5/bitdash.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
