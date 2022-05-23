@@ -1,42 +1,33 @@
-var config = {
-        key: 'c6d7e091-e62e-4bda-819f-99bb13506fba',
-        logs: {
-          level: 'debug'
-        },
-        playback: {
-          preferredTech: [
-            {
-          player: 'html5',
-          streaming: 'Dash'
-        }, {
-          player: 'html5',
-          streaming:'hls'
-        }, {
-          player: 'html5',
-          streaming: 'smooth'
-        }, {
-          player: 'native',
-          streaming: 'hls'
-        }, {
-          player: 'native',
-          streaming: 'progressive'
-        }]
-        }
-    };
+var player;
 
-    var source = {
-        hls: 'https://spliktv-nhl004@d21gtq1mno4siw.cloudfront.net/out/v1/c7889d78bfa643dc9079c46c81be4b6d/index.m3u8'
-    }
-
-    var container = document.getElementById('my-player');
-    var player = new bitmovin.player.Player(container, config);
-    player.load(source).then(
-        function(value) {
-            // Success
-            console.log('Successfully created bitmovin player instance');
+var conf = {
+  key: "96dca549-b37c-4c02-9847-bfd953323ab5",
+  playback: {
+            autoplay: false,
+            muted: false
         },
-        function(reason) {
-            // Error!
-            console.log('Error while creating bitmovin player instance');
+        advertising: {
+            adBreaks: [{
+                tag: {
+                    url: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
+                    type: 'vast'
+                }
+            }]
         }
-    );
+};
+var source = {
+  hls:
+    "https://abp-i.akamaihd.net/hls/live/765533/abpsanjha/master.m3u8",
+  poster: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/poster.jpg"
+};
+
+player = new bitmovin.player.Player(document.getElementById("player"), conf);
+
+player.load(source).then(
+  function () {
+    console.log("Successfully loaded source"); // Success!
+  },
+  function () {
+    console.log("Error while loading source"); // Error!
+  }
+);
