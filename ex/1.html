@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embed</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+         function getParameterByName(name) {
+             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                 results = regex.exec(location.search);
+             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+         }
+
+  function PlayE(data, m3u8){
+   if(data){
+    console.log("Extensión instalada"+ m3u8);
+    location.href='chrome-extension://lcipembjfkmeggpihdpdgnjildgniffl/player.html#'+m3u8
+   }else{
+    location.href='descargar.html';
+   }
+}
+  function detectExtension(callback, m3u8) {
+  var img;
+  img = new Image();
+  img.src = "chrome-extension://lcipembjfkmeggpihdpdgnjildgniffl/icon128.png";
+  img.onload = function() {
+  callback(true, m3u8);
+  };
+  img.onerror = function() {
+  callback(false);
+  };
+}
+            m3u8 = atob(getParameterByName('get'));
+            if(/Android|iPhone|iPad|iPod|BlackBerry|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                //alert(m3u8);
+                location.href=m3u8;
+            }else{
+                console.log('NO es un celular.');
+                detectExtension(PlayE, m3u8);
+            }
+       
+   
+
+</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7143c1263c3f033d","token":"23b63986adcb476f8c5e2c4a6c4718dd","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
