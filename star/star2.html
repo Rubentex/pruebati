@@ -1,31 +1,45 @@
-<html>
-   <head>
-      <meta name="theme-color" content="black">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="referrer" content="never">
-      <meta name="referrer" content="no-referrer">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
- <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body data-autofill-highlight="false">
-<div id="megadeportes"></div>
-<script>
-var player = new Clappr.Player({parentId: "#megadeportes", mimeType: "application/dash+xml", source: "https://live-llc-sa-west-2.media.starott.com/gru1/qb02/starplus/event/2022/05/26/Athletico_Paranaense_BRA__20220526_1653596157041/ctr-all-sliding.m3u8?v=1&hash=6634b613ab6bdc0ffd07f37ecd04c2ad1b5acad3", poster:"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/B137F0493252ACACA066536F0BC51C48C82759599EE0F9FC1DCA34A011323EF8/scale?width=1950&aspectRatio=1.78&format=jpeg", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"a4984e37e70441809040c2921e9b375e": "1889fc5de0e69263995ceac7ca27a9e4"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
+
+<script src="//ssl.p.jwpcdn.com/player/v/8.21.0/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Mega Deportes | Star+",
+            "description": "https://megatelevisionhd.com",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/5FFB9D68FF141C911EC6E9C8EB4F732467FFCC2868FEFA01ED1A29F535579F33/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/gru1/qb01/starplus/event/2022/06/01/Finalssima_Italia_vs_Arge_20220601_1654102812036/ctr-all-sliding.m3u8?v=1&hash=8e2813c9ffa4f76bb3dd778d97f29c638dbfb454',
+                    "drm": {
+                        "clearkey": { "keyId": "406eae8cb5f44682ad300855e199db6a", "key": "2b1cdd8ef3475177feeb4122eb615341" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {}
+    });
+</script>
+</html>
