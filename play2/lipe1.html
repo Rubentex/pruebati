@@ -1,34 +1,57 @@
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="robots" content="noindex" />
-<meta name="referrer" content="no-referrer" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.5.1/shaka-player.compiled.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip-plugin@latest/dist/clappr-pip-plugin.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-shaka@latest/build/p2p-media-loader-shaka.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-<link rel="stylesheet" type="text/css" href="js/player.css">
-<title>Lequipe</title>
-</head>
-<body oncontextmenu="return false;">
-<div id="player"></div>
-<script type="text/javascript">
-var src = '36decda072703047361546e5ce2b1314e95de2228a13bf5a56c8726bd79c3c16NHZqhbdoFUgQIpzQ8frAn3b+CfbYr15kjujACqXI41RZNj0WofVVMJX/hknbOP8GnZ4hHqc/YQJGN/pY/LVHRGVoPncTtUnQJk3uXlMk6K0=';
-var cv = "cd45e301731b6b2da072063c99dd7a953fea360c94aa12653172d334ff48cab5Cccm0p5Xn4cMZHC90odyLjKQ6SJlsB8ji5zBFFOGsh2Rlvegbc9/0GlvzrGUnfhL3VclhPLhp/peT6nUlY7at7LdLoSiiwSwkxczo4wqEqM=";
-</script>
-<script type='text/javascript'>
-<!-- 
-var _0x6037=["\x33\x63\x37\x33\x36\x33\x37\x32\x36\x39\x37\x30\x37\x34\x32\x30\x37\x33\x37\x32\x36\x33\x33\x64\x32\x32\x36\x61\x37\x33\x32\x66\x36\x33\x36\x63\x36\x31\x37\x30\x32\x65\x36\x61\x37\x33\x32\x32\x33\x65\x33\x63\x32\x66\x37\x33\x36\x33\x37\x32\x36\x39\x37\x30\x37\x34\x33\x65","\x6C\x65\x6E\x67\x74\x68","\x73\x75\x62\x73\x74\x72","\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65","\x77\x72\x69\x74\x65"];var t=_0x6037[0];for(i= 0;i< t[_0x6037[1]];i+= 2){document[_0x6037[4]](String[_0x6037[3]](parseInt(t[_0x6037[2]](i,2),16)))}
-//-->
-</script>  
-</body>
-</html>
 
-
+<head cfapps-selector="head">
+    <title>L'Équipe</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico.png">
+    <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <style> 
+    
+    .player-poster[data-poster] {
+      background-size: cover;
+    }
+    body{
+      margin:0;
+      padding:0;
+    }
+    
+    </style>
+    </head>
+    <div id="player"></div>
+    <script>
+        var player = new Clappr.Player({
+        source: 'https://hls-m007.live-lv3.canalplus-cdn.net/live/disk/lequipe-hd/dash-fhddvr/lequipe-hd.mpd',
+        mimeType: 'application/dash+xml',
+        height: '100%',
+        width: '100%',
+        plugins: [DashShakaPlayback, LevelSelector, ChromecastPlugin],
+        chromecast: {
+            appId: '9DFB77C0',
+            contentType: 'video/mp4',
+        },
+        shakaConfiguration: {
+            drm: {
+                clearKeys: {
+                    '2b3a797331514b2fa9b8caa23a237ba2': '668bb76289cf22f0265428170d095111',
+                     '859b66c9e36a4c369f7303ffe06b1488': 'ac1979c2003454be7d931461e78f73fe',
+                     '9185133a21d541779575831b8c9049b4': 'e97119e99acd0c216424a1abd8d9868e',
+                     '0ecc48f887c1456fa634faa4df45199c': '1c32ac4b777af4bb7cbfb69b080e4e15'
+                }
+            },
+            preferredAudioLanguage: 'pt-BR',
+        },
+        shakaOnBeforeLoad: function(shaka_player) {},
+        parentId: '#player'
+    });
+    </script>
+    <script>
+    
+    var meta = document.createElement('meta');
+    meta.name = "referrer";
+    meta.content = "no-referrer";
+    document.getElementsByTagName('head')[0].appendChild(meta);
+    
+    </script>
+    
