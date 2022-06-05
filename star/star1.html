@@ -1,32 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
 
-<html>
-   <head>
-      <meta name="theme-color" content="black">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="referrer" content="never">
-      <meta name="referrer" content="no-referrer">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
- <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body data-autofill-highlight="false">
-<div id="megadeportes"></div>
-<script>
-var player = new Clappr.Player({parentId: "#megadeportes", mimeType: "application/dash+xml", source: "https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/06/03/Boston_Celtics_vs_Golden__20220603_1654212478024/ctr-all-sliding.m3u8?v=1&hash=8e7a12859662295636943fef74306e334045f476", poster:"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/BC1917CDF607222430B9F42EDA7B80854F9D51860E2A804054AA20915D83B109/scale?width=1920&aspectRatio=1.78&format=jpeg", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"dbbfb68598794f5faf61847ad00b445f": "a74b6dbd5bda57108461d97f4246b30a"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/21A44299FC0ABA6816CDDDE1DC1DFA4B2D566F380D2DEA2BC3F21674559D80A0/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/06/05/Gibraltar_vs_North_Macedo_20220605_1654439126035/ctr-all-sliding.m3u8?v=1&hash=275336ed5b5683fdcd2f66d752d252873625da4f',
+                    "drm": {
+                        "clearkey": { "keyId": "f6b239a69a03403ca26773c2c3de90c8", "key": "2d96cbed706dde4b0f7b8bd3a3bc86c5" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
+</script>
+</html>
