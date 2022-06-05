@@ -1,49 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta name="referrer" content="never">
-<meta name="referrer" content="no-referrer">
-<meta content="width=device-width, initial-scale=1" name="viewport">
-<script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip-plugin@latest/dist/clappr-pip-plugin.js"></script>
-<style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<style>
-
+</head>       
+<style type="text/css">
 body {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0; background-color: #000;
-    margin: 0;
-}
-#player {
-    width: 100vw;
-    height: 100%;
-    //max-height: 100vh;
-    //max-width: 177.78vh;
-    //margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0; background-color: #000;
-    right: 0;
+   margin: 0;
+   padding: 0;
 }
 </style>
-<body oncontextmenu="return false;">
-<div id="player"></div>
-<script type="text/javascript">
-var lang = 'es-419';var setup = {parentId: '#player',source:'https://linear-llc-sa-west-2.media.starott.com/gru1/qb01/starplus/channel/starplus_espn_extra_sur-1651090792729/ctr-all-sliding.m3u8?v=1&hash=5f270adaae09dc2a3aca18633ce1936dc45bdc56', mimeType:'application/dash+xml', width: '100%',height: '100%',poster: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/FAFF32CFE219BF21A0F5EC4572212A00F7DB90A64A04DB0AD8877C57DDBD704D',plugins: [DashShakaPlayback,LevelSelector,ClapprPIPPlugin,ChromecastPlugin],preload: 'metadata',shakaConfiguration: {drm: {clearKeys:{"4f899b7720534c8eac2651a541f84090":"f5528fee84fcfb2715a8fcc937162677"},retryParameters: {maxAttempts: Infinity,}}},};var player = new Clappr.Player(setup)
+
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/AAD526DC5809C2D6255F9FACAD63FFBEE4A7266AEC50AA3FE4C5E6C0AD8865D4/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/gru1/qb01/starplus/event/2022/06/05/Mxico_vs_Ecuador_20220605_1654466122021/ctr-all-sliding.m3u8?v=1&hash=792a1fb5f507dfd521e9ee051b61558a8b65f6f0',
+                    "drm": {
+                        "clearkey": { "keyId": "cc4216e367354ad299c0bb8ad48c92cd", "key": "5c3fcf71bc0e024bc7e31ecc6e755570" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
+</script>
+</html>
