@@ -1,31 +1,46 @@
-<html>
-   <head>
-      <meta name="theme-color" content="black">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="referrer" content="never">
-      <meta name="referrer" content="no-referrer">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
- <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body data-autofill-highlight="false">
-<div id="megadeportes"></div>
-<script>
-var player = new Clappr.Player({parentId: "#megadeportes", mimeType: "application/dash+xml", source: "https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/05/11/Wolverhampton_Wanderers_v_20220511_1652290235024/ctr-all-sliding.m3u8?v=1&hash=fb0a5201041a612638bdb0278265dd7475dbbc7f", poster:"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/1F970A4A85F4823C5DF97CBF9B0DA62DB9299E0FD090A68CA6632F912BC87052/scale?width=1920&aspectRatio=1.78&format=jpeg", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"a1d04febec26493eb8142b942a8e8bc7": "b01504ff447d90549b701ab9d8f930f2"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
+
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/12B39115B54A9A40C6E9F58A878839B6CBC7A02AFC5366FC4ABA67A2B537F559/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/06/05/Repblica_Checa_vs_Espaa_20220605_1654448444021/ctr-all-sliding.m3u8?v=1&hash=5751b5707870e95c646e8b712876f7aa03e3c169',
+                    "drm": {
+                        "clearkey": { "keyId": "506d6ffbb3ac4a24825cf735d35e30ce", "key": "2bdfc2d4d0cff5afa1b99555743c68d8" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
+</script>
+</html>
