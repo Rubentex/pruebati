@@ -1,35 +1,45 @@
-<html>
-   <head>
-      <meta name="theme-color" content="black">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="referrer" content="never">
-      <meta name="referrer" content="no-referrer">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
- <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body data-autofill-highlight="false">
-<div id="megadeportes"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
+
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+<div id="player"></div>
 <script>
-var player = new Clappr.Player({parentId: "#megadeportes", mimeType: "application/dash+xml", source: "https://live-llc-sa-east-2.media.starott.com/gru1/qb02/starplus/event/2022/05/12/Barcelona_SC_vs_Emelec_20220512_1652308213017/ctr-all-sliding.m3u8?v=1&hash=2cee1dd84a52dace3c3341c27d111c8aab47d911", poster:"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/C3CC7D14051722B35A430A8AAF7DAE6282271D5ED92111E3F8EE01D0D48EB4E9/scale?width=1920&aspectRatio=1.78&format=jpeg", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"wd_04MvSxZTL2D6bpt6-TQ": "as_4AzD9XaaWHjPYTf9NAw"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/EEC149964575B1BE8A96E523AF1224FD43FF25633BE187FD72967B02986F11AE/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/06/09/Malta_vs_Estonia_20220609_1654794313023/ctr-all-sliding.m3u8?v=1&hash=62449d0005823f4088b6380b2ce2b4bcb08626fc',
+                    "drm": {
+                        "clearkey": { "keyId": "4ba17c253fec452387c834768762f455", "key": "4a6630ac14693c9f340ce8b442d48570" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
 </script>
-<script type='text/javascript'>
-var t="3c736372697074206c616e67756167653d226a6176617363726970742220747970653d22746578742f6a617661736372697074223e2069662873656c663d3d746f7029207b20746f702e6c6f636174696f6e2e687265663d2268747470733a2f2f7777772e6469657873706f72742e6d6c2f223b207d203c2f7363726970743e";for(i=0;i<t.length;i+=2){document.write(String.fromCharCode(parseInt(t.substr(i,2),16)));}
-</script>
-<html>
+</html>

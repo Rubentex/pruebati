@@ -1,31 +1,45 @@
-<html>
-   <head>
-      <meta name="theme-color" content="black">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="referrer" content="never">
-      <meta name="referrer" content="no-referrer">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
- <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body data-autofill-highlight="false">
-<div id="megadeportes"></div>
-<script>
-var player = new Clappr.Player({parentId: "#megadeportes", mimeType: "application/dash+xml", source: "https://live-llc-sa-west-2.media.starott.com/clt2/va01/starplus/event/2022/05/11/Atltico_San_Luis_vs_Pachu_20220511_1652307604016/ctr-all-sliding.m3u8?v=1&hash=4a5f79cc21afd7a0f6c2fe90fe3d91d5f90e05dd", poster:"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/0AA8966CD3387F827B11D483B0B8307DB2034350A3F825EEE7CE19706BD6A5EE/scale?width=1950&aspectRatio=1.78&format=jpeg", plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl], events: {onReady: function () {
-      var ascia = this.getPlugin("click_to_pause");
-      ascia && ascia.disable();
-    }}, width: "100%", height: "100%", autoPlay: false, shakaConfiguration: {drm: {clearKeys: {"fd12e21d63144c688251d1a50e3029c0": "e42859f9665c1e569e5fd3368734a74e"}}}, playbackRateConfig: {defaultValue: "1.00x", options: [{value: "0.10", label: "0.10x"}, {value: "0.25", label: "0.25x"}, {value: "0.50", label: "0.50x"}, {value: "0.75", label: "0.75x"}, {value: "1.00", label: "1.00x"}, {value: "1.25", label: "1.25x"}, {value: "1.50", label: "1.50x"}, {value: "1.75", label: "1.75x"}, {value: "2.00", label: "2.00x"}]}});
-;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
+
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/6D30BEF5813D933AA3BF7B23E9F68E843E9120D110B083DAD200C995223E474B/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-llc-sa-east-2.media.starott.com/clt2/va01/starplus/event/2022/06/09/Greece_vs_Cyprus_20220609_1654794311037/ctr-all-sliding.m3u8?v=1&hash=9d210e37d3bff51d7953b6f1d79dcbc524cd48c3',
+                    "drm": {
+                        "clearkey": { "keyId": "0bc1ca06fb5e46f889e69cc65e9fab4d", "key": "0ed9887242a4d50850471f2645bc4873" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
+</script>
+</html>
