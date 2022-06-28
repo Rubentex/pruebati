@@ -8,30 +8,39 @@ body {
    padding: 0;
 }
 </style>
+
 <script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
 <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
-<div id='mediaplayer'></div>
-<script type="text/javascript">
-  jwplayer('mediaplayer').setup({
-     width: 480,
-     height: 360,
-     controlbar: "bottom",
-     playlist: [{
-        file: "http://www.youtube.com/watch?v=-spgUfGFTSY",
-        image: "http://uni.edu/jw7/assets/movie.jpg",
-        tracks: [{ 
-            file: "http://uni.edu/jw7/captions/movie-en.2014.vtt", 
-            label: "English",
-            kind: "captions",
-            "default": true 
-            },{ 
-            file: "http://uni.edu/jw7/captions/movie-fr.2014.vtt", 
-            kind: "captions",
-            label: "French"
-        }]
-    }]
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
 
-});
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/C40069A7CDD56598683EBB8D25189ED8A40F6265AC4D92BB7A51C4B372B9A8A1/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://www.youtube-nocookie.com/embed/sMyCO3Lbw_I',
+                    "drm": {
+                        "clearkey": { "keyId":  "22e081a8c04049158dcc4d540afd5f8b", "key": 
+                        "b72cbf3fa7d0420e02390378c3fc88d9" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
 </script>
 </html>
