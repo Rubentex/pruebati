@@ -1,37 +1,46 @@
-
-<!DOCTYPE  html>
-<html>
-    <head>
-        <meta http-equiv="refresh" content="15" />
-    </head>
-<style>
-.h3 {
-    color: #FFFFFF;
-    text-align: center;
-    font-family: Avenir-Next-World-Demi,sans-serif;
-}
-.padre {
-
-}
-.hijo {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   width: 100%;
-   height: 30%;
-   margin: auto;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>       
+<style type="text/css">
+body {
+   margin: 0;
+   padding: 0;
 }
 </style>
-    <body style="background-color: #000000;">
-<div class="padre">
-   <div class="hijo">
-<h3 class="h3">El evento estara disponible en breve</h3>
-<h3 class="h3">Se actualizara automaticamente</h3>
-</div>
-</div>
 
+<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
 
-    </body>
+    playerInstance.setup({
+
+        playlist: [{
+            "title": "Diex Sport | Star+",
+            "description": "Mirar Star+ de manera gratuita",
+            "image": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/21783F1B200446199F1B918D5C0F7D3B0B686C46DBF2D4B2A20FB5478FEA66EA/scale?width=1920&aspectRatio=1.78&format=jpeg",
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://live-ftc-na-south-2.media.starott.com/gru1/qb02/starplus/event/2022/06/29/Cerro_Porteo_PAR_vs_Palme_20220629_1656534624120/ctr-all-sliding.m3u8?v=1&hash=5f749c96bc30e4978165f59f68be1dbdfa209435',
+                    "drm": {
+                        "clearkey": { "keyId":  "8b885ffc1a564f62bf1eafc8ae3c458b", "key": 
+                        "d95199095e21e53c0a83d614ea7a2e59" }
+                    },
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {}
+    });
+</script>
 </html>
