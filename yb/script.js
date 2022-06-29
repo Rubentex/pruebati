@@ -40,7 +40,7 @@ var youtubePlayer = function (element) {
   player.on("ready", function () {
     if (!playerInitialized) {
       playerInitialized = true;
-      player.volume = 0.1;
+      player.volume = 100;
       mid = player.source;
       // console.log('ready', youtube_parser(mid));
     }
