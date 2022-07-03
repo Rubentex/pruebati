@@ -60,7 +60,7 @@ var youtubePlayer = function (element) {
   player.on("timeupdate", function (e) {
     var currentTime = player.currentTime;
     var duration = player.duration;
-    var position = Math.round(currentTime / duration * 100);
+    var position = Math.round(currentTime / duration * 5000);
 
     statsQuadrants(position, quadrants, mid);
   });
